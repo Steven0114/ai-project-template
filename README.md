@@ -6,10 +6,15 @@ A GitHub-first starting point for projects built by people and AI coding agents.
 
 1. On GitHub, open this repository and select **Use this template → Create a new repository**. Choose the new repository's owner, name, visibility, and other settings.
 2. Clone the new repository and open it in your editor or coding agent.
-3. Create a **Project bootstrap** issue describing the purpose, users, chosen stack, and first deliverable.
-4. Ask the coding agent to read `AGENTS.md`, this README, `.github/`, and `docs/`; inspect the repository; then propose project-specific changes before editing.
-5. Tailor `.gitignore`, `.env.example`, `docs/architecture.md`, and `.github/workflows/ci.yml` to the project. Add tests and stack-specific quality checks before feature work.
-6. Review and merge the bootstrap pull request, then begin feature work through issues and pull requests.
+3. Make sure every agent has the skills installed (one time per machine, self-updating):
+   - Claude Code: `claude plugin marketplace add mattpocock/skills` then `claude plugin install mattpocock-skills@mattpocock`
+   - Codex: `codex plugin marketplace add mattpocock/skills` then `codex plugin add mattpocock-skills@mattpocock`
+   - Gemini / Antigravity: `gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering` (repeat with `skills/productivity`)
+4. Run `/setup-matt-pocock-skills` once in the new repository (issue tracker and triage labels).
+5. Fill in `docs/GOALS.md` with the agent (deepening questions, success and kill criteria, riskiest assumptions) and get it confirmed before any feature Issue.
+6. Create a **Project bootstrap** issue describing the purpose, users, chosen stack, and first deliverable. Ask the coding agent to read `AGENTS.md`, `docs/WORKFLOW.md`, this README, `.github/`, and `docs/`; inspect the repository; then propose project-specific changes before editing.
+7. Tailor `.gitignore`, `.env.example`, `docs/architecture.md`, and `.github/workflows/ci.yml` to the project. Add tests and stack-specific quality checks before feature work.
+8. Review and merge the bootstrap pull request, then begin feature work through issues and pull requests.
 
 If GitHub does not show **Use this template**, an owner can enable it in **Settings → General → Template repository**.
 
@@ -34,6 +39,8 @@ Agents should follow the Work Routing in `AGENTS.md` before creating an Issue. A
 - `.github/workflows/ci.yml` — starter whitespace check; add the project's formatter, tests, type checks, and build here.
 - `.gitignore` — common generated files, local configuration, credentials, and runtime data exclusions.
 - `.env.example` — names and safe placeholders for environment variables; never put real secrets here.
+- `docs/GOALS.md` — goal, success and kill criteria, riskiest assumptions; filled in before any feature work.
+- `docs/WORKFLOW.md` — multi-model roles (Claude, Codex, Grok, Antigravity, ORCA) and hand-offs.
 - `docs/architecture.md` — current system overview and pointers to important design choices.
 - `docs/adr/` — durable records of significant architecture decisions.
 
