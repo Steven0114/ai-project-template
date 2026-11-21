@@ -47,4 +47,3 @@ Agents should follow the Work Routing in `AGENTS.md` before creating an Issue. A
 ## Template maintenance
 
 Keep this repository stack-neutral. When changing the workflow, update the relevant source file and this guide if the change affects how a new project is bootstrapped. Use Git tags such as `v1.0.0` to identify template versions used by new repositories.
-
